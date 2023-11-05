@@ -29,13 +29,13 @@ export const calendarSlice = createSlice({
                 state.activeEvent = null;
             }
         },
-        onLoadEvents: (state, {payload = []}) => {
+        onLoadEvents: (state, { payload = [] }) => {
             state.isLoadingEvents = false;
             
             payload.forEach(event => {
                 const exist = state.events.some( dbEvent => dbEvent.id === event.id);
 
-                if(!exist)
+                if( !exist )
                     state.events.push(event);
             })
         },
